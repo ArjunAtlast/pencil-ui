@@ -10,10 +10,69 @@
         background: $section-default-bg;
         color: $section-default-text-color;
         border-radius: $section-border-radius;
-        border: $section-border-width $section-border-style $section-default-border-color;
-    }
+        border: $section-default-border-width $section-border-style $section-default-border-color;
+
+    }//.default
 
     &.raised {
         @include elevation($section-raised-distance);
-    }
+    }//.raised
+
+    &.inverse {
+        background: $section-inverse-bg;
+        color: $section-inverse-text-color;
+        border-radius: $section-border-radius;
+        border: $section-inverse-border-width $section-border-style $section-inverse-border-color;
+
+        .pencil.header {
+            color: $header-inverse-text-color;
+            @include colored-text;
+
+            &.sub {
+                color: $header-inverse-text-color;
+                @include colored-text;
+            }
+        }//.inverse.pencil.header
+
+        @each $key, $val in $colors {
+
+            &.#{$key} {
+                background: $val;
+                border-color: darken($val, 5%);
+            }
+        }//each
+
+        &.primary {
+            background: $brand-primary;
+            border-color: darken($brand-primary, 5%);
+        }//.primary
+
+        &.secondary {
+            background: $brand-secondary;
+            border-color: darken($brand-secondary, 5%);
+        }//.secondary
+
+        @each $key, $val in ('info': $brand-info, 'success': $brand-success, 'warning': $brand-warning, 'danger': $brand-danger) {
+            
+            &.#{$key} {
+                background: transparentize($val, 0.2);
+                color: darken($val, 30%);
+                border-color: darken($val, 5%);
+    
+                .pencil.header {
+                    color: darken($val, 30%);
+        
+                    &.sub {
+                        color: darken($val, 30%);
+                    }
+                }
+            }
+
+        }//each
+
+
+    }//.inverse
+
+    @include attachment;
+
 }

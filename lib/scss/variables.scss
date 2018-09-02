@@ -15,14 +15,15 @@
 
 $body-bg: #f8f8f8;
 $text-color: #2e2e2e;
+$inverse-text-color: #ffffff;
 
 $font-family-sans-serif: 'Montserrat', sans-serif;
 $font-family-monospace: 'Share Tech Mono', monospace;
 $font-family-display: $font-family-sans-serif;
 
 $font-size-base: 14px;
-$font-size-small: 12pt;
-$font-size-large: 16px;
+$font-size-small: 0.8*$font-size-base;
+$font-size-large: 1.2*$font-size-base;
 
 $line-height: 1.5em;
 
@@ -42,6 +43,9 @@ $colors: (
     "brown"     : #795548,
     "grey"      : #607d8b     
 );
+
+$light: #FFF;
+$dark: #2e2e2e;
 
 //@theme:
 $brand-primary: #009688;
@@ -63,9 +67,13 @@ $margin-base-vertical: $margin-base;
 $margin-base-horizontal: $margin-base;
 
 $border-width-base: 1px;
+$border-width-inverse: 0px;
 $border-style-base: solid;
 $border-radius-base: 8px;
 $border-color: transparentize($text-color, 0.93);
+$inverse-border-color: darken($text-color, 5%);
+
+$raised-distance-base: 2px; //distance from the ground for raised elements
 
 //@responsive: Mobile first 
 // 0 <= xs <= 768px <= sm <= 992 <= md <= 1200 <= lg
@@ -84,6 +92,11 @@ $container-widths: (
     'lg': 1170px
 );
 
+//@transitions
+$transition-delay: 0s;
+$transition-duration: 300ms;
+$transition-easing: ease-in;
+
 /*
 +--------------+
 +   ADVANCED   +
@@ -99,7 +112,7 @@ $link-color-active: darken($brand-primary, 15%);
 $link-color-hover: lighten($brand-primary, 15%);
 
 
-//@header:
+//@header: components/header.scss
 $header-sizes: (
     'huge': $font-size-base*3,
     'large': $font-size-base*2.5,
@@ -112,19 +125,49 @@ $header-sizes: (
 $header-margin: 0;
 $header-padding: 0 $padding-base-vertical;
 $header-font-weight: 600;
-$sub-header-font-weight: 500;
 $header-text-color: $text-color;
-$sub-header-text-color: transparentize($header-text-color, 0.3);
+$header-inverse-text-color: $inverse-text-color;
 
-//@section
+$sub-header-font-weight: 500;
+$sub-header-text-color: transparentize($header-text-color, 0.3);
+$sub-header-inverse-text-color: $inverse-text-color;
+
+//@section: components/section.scss
 $section-padding: $padding-base-vertical*2 $padding-base-horizontal*2;
 $section-border-radius: $border-radius-base;
-$section-border-width: 0; //$border-width-base;
+$section-border-width: $border-width-base;
 $section-border-style: $border-style-base;
 $section-margin: 0 0 $margin-base-vertical 0;
+$section-raised-distance: $raised-distance-base;
 
-$section-default-bg: #FFF;
+$section-default-bg: $light;
 $section-default-border-color: $border-color;
+$section-default-border-width: $border-width-base;
 $section-default-text-color: $text-color;
 
-$section-raised-distance: 2px;
+$section-inverse-bg: $dark;
+$section-inverse-text-color: $inverse-text-color;
+$section-inverse-border-color: $inverse-border-color;
+$section-inverse-border-width: $border-width-inverse;
+
+//@navbar: components/navbar.scss
+$navbar-padding: $padding-base-vertical*2 $padding-base-horizontal*2;
+$navbar-margin: 0 0 $margin-base-vertical 0;
+$navbar-border-radius: $border-radius-base;
+$navbar-border-width: $border-width-base;
+$navbar-border-style: $border-style-base;
+$navbar-raised-distance: $raised-distance-base;
+
+$navbar-brand-font-size: 1.5*$font-size-base;
+
+
+
+$navbar-default-bg: $light;
+$navbar-default-border-color: $border-color;
+$navbar-default-text-color: $text-color;
+$navbar-default-border-width: $border-width-base;
+
+$navbar-inverse-bg: $dark;
+$navbar-inverse-border-color: $inverse-border-color;
+$navbar-inverse-text-color: $inverse-text-color;
+$navbar-inverse-border-width: $border-width-inverse;

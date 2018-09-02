@@ -28,9 +28,14 @@ p {
 
 //links
 a {
+    transition: color $transition-duration $transition-easing $transition-delay;
     &:link { color: $link-color; }
     &:visited, &:active { color: $link-color-active; }
     &:hover { color: $link-color-hover; }
+}
+
+.padded {
+    padding: $padding-base-vertical $padding-base-horizontal;
 }
 
 .pencil.container {

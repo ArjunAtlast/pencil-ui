@@ -10,6 +10,66 @@
     box-shadow: 0px 0px 2.5*$dist rgba(0,0,0,0.1), $dist $dist 2.5*$dist rgba(0,0,0,0.1);
 }
 
+@mixin colored-text {
+
+    &.primary {
+        color: $brand-primary;
+    }
+
+    &.secondary {
+        color: $brand-secondary;
+    }
+
+    @each $key, $val in ('info': $brand-info, 'success': $brand-success, 'warning': $brand-warning, 'danger': $brand-danger) {
+
+        &.#{$key} {
+            color: $val;
+        }
+
+    }
+
+    @each $key, $val in $colors {
+
+        &.#{$key} {
+            color: $val;
+        }
+
+    }
+
+}//colored-text
+
+@mixin attachment {
+
+    &[class*='-attached'] {
+
+        &[class*='bottom-'] {
+            border-top-right-radius: 0px;
+            border-top-left-radius: 0px;
+            margin-top: 0;
+        }
+    
+        &[class*='top-'] {
+            border-bottom-right-radius: 0px;
+            border-bottom-left-radius: 0px;
+            margin-bottom: 0;
+        }
+    
+        &[class*='left-'] {
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            margin-right: 0;
+        }
+    
+        &[class*='right-'] {
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+            margin-left: 0;
+        }
+        
+    }
+
+}
+
 /*
 +-----------+
 + FUNCTIONS +

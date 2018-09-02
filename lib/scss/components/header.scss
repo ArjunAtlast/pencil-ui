@@ -12,6 +12,8 @@
         text-transform: uppercase;
         font-weight: 500;
         color: $sub-header-text-color;
+
+        @include colored-text;
     }
 
     @at-root h1#{&}, &.huge {
@@ -37,4 +39,7 @@
     @at-root h6#{&}, &.tiny {
         font-size: header-size('tiny');
     }
+
+    @include colored-text;
+
 }
