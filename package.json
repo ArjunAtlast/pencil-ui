@@ -1,0 +1,31 @@
+{
+  "name": "pencil-ui",
+  "version": "0.0.1",
+  "description": "Pencil UI Web Development Framework made using SCSS and jQuery",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass lib/scss -o dist/css --output-style=compressed",
+    "watch-css": "node-sass -w lib/scss -o dist/css --output-style=compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArjunAtlast/pencil-ui.git"
+  },
+  "keywords": [
+    "ui",
+    "pencil",
+    "framework",
+    "tracingpaper",
+    "web",
+    "css",
+    "jquery"
+  ],
+  "author": "arjunatlast",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArjunAtlast/pencil-ui/issues"
+  },
+  "homepage": "https://github.com/ArjunAtlast/pencil-ui#readme",
+  "devDependencies": {}
+}

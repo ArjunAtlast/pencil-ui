@@ -1,0 +1,19 @@
+@import "../variables.scss";
+@import "../helpers.scss";
+
+.pencil.section, section.pencil {
+    padding: $section-padding;
+    margin: $section-margin;
+
+    &.default {
+
+        background: $section-default-bg;
+        color: $section-default-text-color;
+        border-radius: $section-border-radius;
+        border: $section-border-width $section-border-style $section-default-border-color;
+    }
+
+    &.raised {
+        @include elevation($section-raised-distance);
+    }
+}

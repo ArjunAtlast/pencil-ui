@@ -1,0 +1,40 @@
+@import "../variables.scss";
+@import "../helpers.scss";
+
+//init
+.pencil.header {
+    font-weight: $header-font-weight;
+    margin: $header-margin;
+    color: $header-text-color;
+    line-height: $line-height;
+
+    &.sub {
+        text-transform: uppercase;
+        font-weight: 500;
+        color: $sub-header-text-color;
+    }
+
+    @at-root h1#{&}, &.huge {
+        font-size: header-size('huge');
+    }
+
+    @at-root h2#{&}, &.large {
+        font-size: header-size('large');
+    }
+
+    @at-root h3#{&}, &.big {
+        font-size: header-size('big');
+    }
+
+    @at-root h4#{&}, &.medium {
+        font-size: header-size('medium');
+    }
+
+    @at-root h5#{&}, &.small {
+        font-size: header-size('small');
+    }
+
+    @at-root h6#{&}, &.tiny {
+        font-size: header-size('tiny');
+    }
+}

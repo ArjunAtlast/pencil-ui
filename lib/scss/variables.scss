@@ -1,0 +1,130 @@
+/**
+* @file: variables.scss
+* @theme: default
+* @author: arjunatlast
+* @date: 01-09-2018
+*/
+
+/*
++-----------------+
++   BASE VALUES   +
++-----------------+
+*/
+
+//@content
+
+$body-bg: #f8f8f8;
+$text-color: #2e2e2e;
+
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-monospace: 'Share Tech Mono', monospace;
+$font-family-display: $font-family-sans-serif;
+
+$font-size-base: 14px;
+$font-size-small: 12pt;
+$font-size-large: 16px;
+
+$line-height: 1.5em;
+
+//@colors:
+$colors: (
+    "red"       : #F44336,
+    "pink"      : #FF4081,
+    "purple"    : #9C27B0,
+    "indigo"    : #3f51b5,
+    "blue"      : #03a9f4,
+    "cyan"      : #00bcd4,
+    "teal"      : #009688,
+    "green"     : #8bc34a,
+    "yellow"    : #fdd835,
+    "amber"     : #ffc107,
+    "orange"    : #ff5722,
+    "brown"     : #795548,
+    "grey"      : #607d8b     
+);
+
+//@theme:
+$brand-primary: #009688;
+$brand-secondary: #FFC107;
+
+$brand-success: map-get($colors, 'green');
+$brand-warning: map-get($colors, 'amber');
+$brand-danger: map-get($colors, 'red');
+$brand-info: map-get($colors, 'blue');
+$brand-inert: map-get($colors, 'grey');
+
+//@box-model:
+$padding-base: 8px;
+$padding-base-horizontal: $padding-base*2;
+$padding-base-vertical: $padding-base;
+
+$margin-base: 8px;
+$margin-base-vertical: $margin-base;
+$margin-base-horizontal: $margin-base;
+
+$border-width-base: 1px;
+$border-style-base: solid;
+$border-radius-base: 8px;
+$border-color: transparentize($text-color, 0.93);
+
+//@responsive: Mobile first 
+// 0 <= xs <= 768px <= sm <= 992 <= md <= 1200 <= lg
+$grid-columns: 12;
+
+$breakpoints: (
+    'xs': 768px,
+    'sm': 992px,
+    'md': 1200px,
+);
+
+$container-widths: (
+    'xs': auto,
+    'sm': 750px,
+    'md': 970px,
+    'lg': 1170px
+);
+
+/*
++--------------+
++   ADVANCED   +
++--------------+
+*/
+
+//paragrphs
+$paragraph-margin: 0 0 1em 0;
+
+//links
+$link-color: $brand-primary;
+$link-color-active: darken($brand-primary, 15%);
+$link-color-hover: lighten($brand-primary, 15%);
+
+
+//@header:
+$header-sizes: (
+    'huge': $font-size-base*3,
+    'large': $font-size-base*2.5,
+    'big': $font-size-base*2,
+    'medium': $font-size-base*1.6,
+    'small': $font-size-base*1.2,
+    'tiny': $font-size-base*0.9,
+);
+
+$header-margin: 0;
+$header-padding: 0 $padding-base-vertical;
+$header-font-weight: 600;
+$sub-header-font-weight: 500;
+$header-text-color: $text-color;
+$sub-header-text-color: transparentize($header-text-color, 0.3);
+
+//@section
+$section-padding: $padding-base-vertical*2 $padding-base-horizontal*2;
+$section-border-radius: $border-radius-base;
+$section-border-width: 0; //$border-width-base;
+$section-border-style: $border-style-base;
+$section-margin: 0 0 $margin-base-vertical 0;
+
+$section-default-bg: #FFF;
+$section-default-border-color: $border-color;
+$section-default-text-color: $text-color;
+
+$section-raised-distance: 2px;

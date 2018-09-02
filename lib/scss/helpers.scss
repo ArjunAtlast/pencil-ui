@@ -1,0 +1,45 @@
+// @import "variables.scss";
+
+/*
++--------+
++ MIXINS +
++--------+
+*/
+
+@mixin elevation($dist) {
+    box-shadow: 0px 0px 2.5*$dist rgba(0,0,0,0.1), $dist $dist 2.5*$dist rgba(0,0,0,0.1);
+}
+
+/*
++-----------+
++ FUNCTIONS +
++-----------+
+*/
+
+//color
+@function color($key) {
+
+    @return map-get($colors, $key);
+
+}
+
+//breakpoint
+@function breakpoint($key) {
+
+    @return map-get($breakpoints, $key);
+
+}
+
+//container-width
+@function container-width($key) {
+
+    @return map-get($container-widths, $key);
+
+}
+
+//header-size
+@function header-size($key) {
+
+    @return map-get($header-sizes, $key);
+
+}
