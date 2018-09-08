@@ -71,14 +71,12 @@ $border-width-inverse: 0px;
 $border-style-base: solid;
 $border-radius-base: 8px;
 $border-color: transparentize($text-color, 0.93);
-$inverse-border-color: darken($text-color, 5%);
+$border-color-inverse: darken($dark, 5%);
 
 $raised-distance-base: 2px; //distance from the ground for raised elements
 
 //@responsive: Mobile first 
 // 0 <= xs <= 768px <= sm <= 992 <= md <= 1200 <= lg
-$grid-columns: 12;
-
 $breakpoints: (
     'xs': 768px,
     'sm': 992px,
@@ -140,6 +138,8 @@ $section-border-style: $border-style-base;
 $section-margin: 0 0 $margin-base-vertical 0;
 $section-raised-distance: $raised-distance-base;
 
+$section-divider-thickness: $border-width-base;
+
 $section-default-bg: $light;
 $section-default-border-color: $border-color;
 $section-default-border-width: $border-width-base;
@@ -147,20 +147,17 @@ $section-default-text-color: $text-color;
 
 $section-inverse-bg: $dark;
 $section-inverse-text-color: $inverse-text-color;
-$section-inverse-border-color: $inverse-border-color;
+$section-inverse-border-color: $border-color-inverse;
 $section-inverse-border-width: $border-width-inverse;
 
 //@navbar: components/navbar.scss
 $navbar-padding: $padding-base-vertical*2 $padding-base-horizontal*2;
 $navbar-margin: 0 0 $margin-base-vertical 0;
 $navbar-border-radius: $border-radius-base;
-$navbar-border-width: $border-width-base;
 $navbar-border-style: $border-style-base;
 $navbar-raised-distance: $raised-distance-base;
 
 $navbar-brand-font-size: 1.5*$font-size-base;
-
-
 
 $navbar-default-bg: $light;
 $navbar-default-border-color: $border-color;
@@ -168,6 +165,30 @@ $navbar-default-text-color: $text-color;
 $navbar-default-border-width: $border-width-base;
 
 $navbar-inverse-bg: $dark;
-$navbar-inverse-border-color: $inverse-border-color;
+$navbar-inverse-border-color: $border-color-inverse;
 $navbar-inverse-text-color: $inverse-text-color;
 $navbar-inverse-border-width: $border-width-inverse;
+
+//@grid: components/grid.scss
+$grid-columns: 12;
+$row-margin: 0;
+$gutter-size: $margin-base-horizontal;
+
+//@button: components/button.scss
+$button-padding: $padding-base-vertical $padding-base-horizontal;
+$button-border-radius: $border-radius-base;
+$button-border-style: $border-style-base;
+$button-raised-distance: $raised-distance-base;
+
+$button-font-weight: 500;
+$button-font-size: $font-size-base;
+
+$button-default-bg: $light;
+$button-default-text-color: $text-color;
+$button-default-border-width: $border-width-base;
+$button-default-border-color: $border-color;
+
+$button-inverse-bg: $dark;
+$button-inverse-text-color: $inverse-text-color;
+$button-inverse-border-width: $border-width-inverse;
+$button-inverse-border-color: $border-color-inverse;

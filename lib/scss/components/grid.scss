@@ -1,0 +1,64 @@
+@import "../variables.scss";
+@import "../helpers.scss";
+
+//grid column mixin
+@mixin grid-column($column-slug) {
+
+    @for $i from 1 through $grid-columns {
+
+        &.#{$column-slug}-#{$i} {
+            flex: none;
+            width: column-width($i);
+        }
+        
+        &.#{$column-slug}-offset-#{$i} {
+
+            margin-left: calc( #{$i*100%/$grid-columns} + #{$gutter-size});
+        }
+    }
+
+}
+
+.pencil.grid {
+    display: flex;
+    flex-direction: row;
+    margin: $gutter-size/2;
+    flex-wrap: wrap;
+
+    & > .row {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        margin: $row-margin;
+        flex-wrap: wrap;
+    }
+
+    .column {
+        flex: 1;
+        margin: $gutter-size/2;
+
+        @include grid-column('xs');
+        
+        /* Smart Phones */
+        @media screen and (min-width: breakpoint('xs')+1px) {
+            
+            @include grid-column('sm');
+
+        }
+        
+        /* Laptops and Small Desktops */
+        @media screen and (min-width: breakpoint('sm')+1px) {
+            
+            @include grid-column('md');
+
+        }
+        
+        /* Large Desktops */
+        @media screen and (min-width: breakpoint('md')) {
+            
+            @include grid-column('lg');
+
+        }
+    }
+
+}

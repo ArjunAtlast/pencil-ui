@@ -2,8 +2,22 @@
 @import "../helpers.scss";
 
 .pencil.section, section.pencil {
+    display: flex;
+    flex-direction: column;
     padding: $section-padding;
     margin: $section-margin;
+
+    .divider {
+        display: block;
+        margin: $padding-base-vertical -1*nth($section-padding, 2) $padding-base-vertical -1*nth($section-padding, 2);
+        background: $section-default-border-color;
+        height: $section-divider-thickness;
+        width: calc(100% + #{nth($section-padding, 2) * 2});
+    }
+
+    .content {
+        margin: $padding-base-vertical 0;
+    }
 
     &.default {
 
@@ -24,6 +38,10 @@
         border-radius: $section-border-radius;
         border: $section-inverse-border-width $section-border-style $section-inverse-border-color;
 
+        .divider {
+            background: $section-inverse-border-color;
+        }
+
         .pencil.header {
             color: $header-inverse-text-color;
             @include colored-text;
@@ -39,17 +57,29 @@
             &.#{$key} {
                 background: $val;
                 border-color: darken($val, 5%);
+
+                .divider {
+                    background: darken($val, 5%);
+                }
             }
         }//each
 
         &.primary {
             background: $brand-primary;
             border-color: darken($brand-primary, 5%);
+
+            .divider {
+                background: darken($brand-primary, 5%);
+            }
         }//.primary
 
         &.secondary {
             background: $brand-secondary;
             border-color: darken($brand-secondary, 5%);
+
+            .divider {
+                background: darken($brand-secondary, 5%);
+            }
         }//.secondary
 
         @each $key, $val in ('info': $brand-info, 'success': $brand-success, 'warning': $brand-warning, 'danger': $brand-danger) {

@@ -1,6 +1,47 @@
 // @import "variables.scss";
 
 /*
++-----------+
++ FUNCTIONS +
++-----------+
+*/
+
+//color
+@function color($key) {
+
+    @return map-get($colors, $key);
+
+}
+
+//breakpoint
+@function breakpoint($key) {
+
+    @return map-get($breakpoints, $key);
+
+}
+
+//container-width
+@function container-width($key) {
+
+    @return map-get($container-widths, $key);
+
+}
+
+//header-size
+@function header-size($key) {
+
+    @return map-get($header-sizes, $key);
+
+}
+
+//column -size
+@function column-width($num) {
+
+    @return calc(#{($num/$grid-columns)*100%} - #{$gutter-size});
+
+}
+
+/*
 +--------+
 + MIXINS +
 +--------+
@@ -70,36 +111,6 @@
 
 }
 
-/*
-+-----------+
-+ FUNCTIONS +
-+-----------+
-*/
-
-//color
-@function color($key) {
-
-    @return map-get($colors, $key);
-
-}
-
-//breakpoint
-@function breakpoint($key) {
-
-    @return map-get($breakpoints, $key);
-
-}
-
-//container-width
-@function container-width($key) {
-
-    @return map-get($container-widths, $key);
-
-}
-
-//header-size
-@function header-size($key) {
-
-    @return map-get($header-sizes, $key);
-
+@mixin transition($property) {
+    transition: $property $transition-duration $transition-easing $transition-delay;
 }

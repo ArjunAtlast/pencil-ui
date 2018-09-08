@@ -37,10 +37,25 @@
         border-radius: $navbar-border-radius;
 
         & > .menu {
+
+            &.pointing .menu-item {
+                
+                &.active {
+                    border-color: $navbar-inverse-text-color;
+                }
+
+                &:hover {
+                    border-color: transparentize($navbar-inverse-text-color, 0.7);
+                }
+
+            }//.pointing
             
-            .menu-item:hover {
+            .menu-item {
+
+                &:hover {
                     background: transparentize($navbar-inverse-text-color, 0.95);
-            }
+                }
+            }//.menu-item
         }//>.menu
 
         @each $key, $val in $colors {
@@ -96,7 +111,7 @@
         }
 
         .menu-item {
-            transition: background $transition-duration $transition-easing $transition-delay;
+            @include transition(background);
             display: block;
             text-transform: uppercase;
             text-decoration: none;
@@ -111,9 +126,26 @@
             }
 
             &:hover {
-                background: transparentize($navbar-default-text-color, 0.95)
+                background: transparentize($navbar-default-text-color, 0.95);
             }
         }//.menu-item
+
+        &.pointing {
+
+            .menu-item {
+                border-radius: 0px;
+                border-bottom: 2px solid transparent;
+                transition: border-color $transition-duration $transition-easing $transition-delay;
+
+                &.active {
+                    border-bottom-color: $navbar-default-text-color;
+                }
+
+                &:hover {
+                    border-bottom-color: transparentize($navbar-default-text-color, 0.7);
+                }
+            }//.menu-item
+        }
 
     }//>.menu
 

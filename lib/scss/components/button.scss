@@ -1,0 +1,179 @@
+@import "../variables.scss";
+@import "../helpers.scss";
+
+$hover-darken: 10%; //inverse buttons
+$hover-saturate: 15%; //default
+
+.pencil.button {
+
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: $button-padding;
+    color: $button-default-text-color;
+    background: $button-default-bg;
+    border: $button-default-border-width $button-border-style $button-default-border-color;
+    border-radius: $button-border-radius;
+    font-size: $button-font-size;
+    font-weight: $button-font-weight;
+    cursor: pointer;
+
+    @include transition(background);
+
+    &:hover {
+        background: mix($button-default-text-color, $button-default-bg, $hover-saturate);
+    }
+
+    &.primary {
+        border-color: $brand-primary;
+        color: $brand-primary;
+
+        &:hover {
+            background: mix($brand-primary, $button-default-bg, $hover-saturate);
+        }
+    }//primary
+
+    &.secondary {
+        border-color: $brand-secondary;
+        color: $brand-secondary;
+
+        &:hover {
+            background: mix($brand-secondary, $button-default-bg, $hover-saturate);
+        }
+    }//secondary
+
+    @each $key, $val in $colors {
+
+        &.#{$key} {
+            border-color: $val;
+            color: $val;
+
+            &:hover {
+                background: mix($val, $button-default-bg, $hover-saturate);
+            }
+        }
+    }//each
+
+    &.inverse {
+
+        color: $button-inverse-text-color;
+        background: $button-inverse-bg;
+        border: $button-inverse-border-width $button-border-style $button-inverse-border-color;
+
+        &:hover {
+            background: darken($button-inverse-bg, $hover-darken);
+        }
+
+        &.primary {
+            border-color: darken($brand-primary, $hover-darken);
+            color: $button-inverse-text-color;
+            background: $brand-primary;
+    
+            &:hover {
+                background: darken($brand-primary, $hover-darken);
+            }
+        }//primary
+
+        &.secondary {
+            border-color: darken($brand-secondary, $hover-darken);
+            color: $button-inverse-text-color;
+            background: $brand-secondary;
+    
+            &:hover {
+                background: darken($brand-secondary, $hover-darken);
+            }
+        }//secondary
+
+        @each $key, $val in $colors {
+
+            &.#{$key} {
+                border-color: darken($val, $hover-darken);
+                color: $button-inverse-text-color;
+                background: $val;
+    
+                &:hover {
+                    background: darken($val, $hover-darken);
+                }
+            }
+        }//each
+
+
+    }
+
+    &.clear {
+        background: transparent !important;
+        border: transparent !important;
+    }
+    
+    &.fluid {
+        display: flex;
+        box-sizing: border-box;
+        width: 100%;
+    }
+
+}
+
+.pencil.buttons {
+
+    .pencil.button {
+        border-radius: 0;
+        display: flex;
+    }
+    
+    &.horizontal {
+
+        display: flex;
+
+        .pencil.button {
+            border-right-width: 0px;
+            flex: 1;
+
+            &:first-child {
+                border-top-left-radius: $button-border-radius;
+                border-bottom-left-radius: $button-border-radius;
+            }
+
+            &:last-child {
+                border-top-right-radius: $button-border-radius;
+                border-bottom-right-radius: $button-border-radius;
+                border-right-width: $button-default-border-width;
+
+                &.inverse {
+                    border-right-width: $button-inverse-border-width;
+                }
+            }
+        }
+    }//horizontal
+
+    &.vertical {
+        flex-direction: column;
+
+        .pencil.button {
+            border-bottom-width: 0px;
+
+            &:first-child {
+                border-top-left-radius: $button-border-radius;
+                border-top-right-radius: $button-border-radius;
+            }
+
+            &:last-child {
+                border-bottom-right-radius: $button-border-radius;
+                border-bottom-left-radius: $button-border-radius;
+                border-bottom-width: $button-default-border-width;
+
+                &.inverse {
+                    border-right-width: $button-inverse-border-width;
+                }
+            }
+        }
+    }//vertical
+
+    &.compact {
+        display: inline-flex;
+
+        .pencil.button {
+            display: inline-flex;
+        }
+    }
+}
