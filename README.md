@@ -1,4 +1,214 @@
-# Pencil UI
+# Pencil UI - Build to be Changed
 
-Pencil UI is a responsive web ui framework developed by Tracing Paper.
+Pencil UI is a customizable web ui framework developed by Tracing Paper.
 Pencil UI is developed using **SCSS** and **jQuery**.
+
+## Components
+
+> Button
+> Header
+> Responsive Grid
+> Navbar
+> Section
+
+## Variables
+
+```scss
+
+/**
+* @file: variables.scss
+* @theme: default
+* @author: arjunatlast
+* @date: 01-09-2018
+*/
+
+/*
++-----------------+
++   BASE VALUES   +
++-----------------+
+*/
+
+//@content
+
+$body-bg: #f8f8f8;
+$text-color: #2e2e2e;
+$inverse-text-color: #ffffff;
+
+$font-family-sans-serif: 'Montserrat', sans-serif;
+$font-family-monospace: 'Share Tech Mono', monospace;
+$font-family-display: $font-family-sans-serif;
+
+$font-size-base: 14px;
+$font-size-small: 0.8*$font-size-base;
+$font-size-large: 1.2*$font-size-base;
+
+$line-height: 1.5em;
+
+//@colors:
+$colors: (
+    "red"       : #F44336,
+    "pink"      : #FF4081,
+    "purple"    : #9C27B0,
+    "indigo"    : #3f51b5,
+    "blue"      : #03a9f4,
+    "cyan"      : #00bcd4,
+    "teal"      : #009688,
+    "green"     : #8bc34a,
+    "yellow"    : #fdd835,
+    "amber"     : #ffc107,
+    "orange"    : #ff5722,
+    "brown"     : #795548,
+    "grey"      : #607d8b     
+);
+
+$light: #FFF;
+$dark: #2e2e2e;
+
+//@theme:
+$brand-primary: #009688;
+$brand-secondary: #FFC107;
+
+$brand-success: map-get($colors, 'green');
+$brand-warning: map-get($colors, 'amber');
+$brand-danger: map-get($colors, 'red');
+$brand-info: map-get($colors, 'blue');
+$brand-inert: map-get($colors, 'grey');
+
+//@box-model:
+$padding-base: 8px;
+$padding-base-horizontal: $padding-base*2;
+$padding-base-vertical: $padding-base;
+
+$margin-base: 8px;
+$margin-base-vertical: $margin-base;
+$margin-base-horizontal: $margin-base;
+
+$border-width-base: 1px;
+$border-width-inverse: 0px;
+$border-style-base: solid;
+$border-radius-base: 8px;
+$border-color: transparentize($text-color, 0.93);
+$border-color-inverse: darken($dark, 5%);
+
+$raised-distance-base: 2px; //distance from the ground for raised elements
+
+//@responsive: Mobile first 
+// 0 <= xs <= 768px <= sm <= 992 <= md <= 1200 <= lg
+$breakpoints: (
+    'xs': 768px,
+    'sm': 992px,
+    'md': 1200px,
+);
+
+$container-widths: (
+    'xs': auto,
+    'sm': 750px,
+    'md': 970px,
+    'lg': 1170px
+);
+
+//@transitions
+$transition-delay: 0s;
+$transition-duration: 300ms;
+$transition-easing: ease-in;
+
+/*
++--------------+
++   ADVANCED   +
++--------------+
+*/
+
+//paragrphs
+$paragraph-margin: 0 0 1em 0;
+
+//links
+$link-color: $brand-primary;
+$link-color-active: darken($brand-primary, 15%);
+$link-color-hover: lighten($brand-primary, 15%);
+
+
+//@header: components/header.scss
+$header-sizes: (
+    'huge': $font-size-base*3,
+    'large': $font-size-base*2.5,
+    'big': $font-size-base*2,
+    'medium': $font-size-base*1.6,
+    'small': $font-size-base*1.2,
+    'tiny': $font-size-base*0.9,
+);
+
+$header-margin: 0;
+$header-padding: 0 $padding-base-vertical;
+$header-font-weight: 600;
+$header-text-color: $text-color;
+$header-inverse-text-color: $inverse-text-color;
+
+$sub-header-font-weight: 500;
+$sub-header-text-color: transparentize($header-text-color, 0.3);
+$sub-header-inverse-text-color: $inverse-text-color;
+
+//@section: components/section.scss
+$section-padding: $padding-base-vertical*2 $padding-base-horizontal*2;
+$section-border-radius: $border-radius-base;
+$section-border-width: $border-width-base;
+$section-border-style: $border-style-base;
+$section-margin: 0 0 $margin-base-vertical 0;
+$section-raised-distance: $raised-distance-base;
+
+$section-divider-thickness: $border-width-base;
+
+$section-default-bg: $light;
+$section-default-border-color: $border-color;
+$section-default-border-width: $border-width-base;
+$section-default-text-color: $text-color;
+
+$section-inverse-bg: $dark;
+$section-inverse-text-color: $inverse-text-color;
+$section-inverse-border-color: $border-color-inverse;
+$section-inverse-border-width: $border-width-inverse;
+
+//@navbar: components/navbar.scss
+$navbar-padding: $padding-base-vertical*2 $padding-base-horizontal*2;
+$navbar-margin: 0 0 $margin-base-vertical 0;
+$navbar-border-radius: $border-radius-base;
+$navbar-border-style: $border-style-base;
+$navbar-raised-distance: $raised-distance-base;
+
+$navbar-brand-font-size: 1.5*$font-size-base;
+
+$navbar-default-bg: $light;
+$navbar-default-border-color: $border-color;
+$navbar-default-text-color: $text-color;
+$navbar-default-border-width: $border-width-base;
+
+$navbar-inverse-bg: $dark;
+$navbar-inverse-border-color: $border-color-inverse;
+$navbar-inverse-text-color: $inverse-text-color;
+$navbar-inverse-border-width: $border-width-inverse;
+
+//@grid: components/grid.scss
+$grid-columns: 12;
+$row-margin: 0;
+$gutter-size: $margin-base-horizontal;
+
+//@button: components/button.scss
+$button-padding: $padding-base-vertical $padding-base-horizontal;
+$button-border-radius: $border-radius-base;
+$button-border-style: $border-style-base;
+$button-raised-distance: $raised-distance-base;
+
+$button-font-weight: 500;
+$button-font-size: $font-size-base;
+
+$button-default-bg: $light;
+$button-default-text-color: $text-color;
+$button-default-border-width: $border-width-base;
+$button-default-border-color: $border-color;
+
+$button-inverse-bg: $dark;
+$button-inverse-text-color: $inverse-text-color;
+$button-inverse-border-width: $border-width-inverse;
+$button-inverse-border-color: $border-color-inverse;
+
+```
+
