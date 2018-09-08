@@ -5,22 +5,15 @@ Pencil UI is developed using **SCSS** and **jQuery**.
 
 ## Components
 
-> Button
-> Header
-> Responsive Grid
-> Navbar
-> Section
+* Button
+* Header
+* Responsive Grid
+* Navbar
+* Section
 
 ## Variables
 
 ```scss
-
-/**
-* @file: variables.scss
-* @theme: default
-* @author: arjunatlast
-* @date: 01-09-2018
-*/
 
 /*
 +-----------------+
