@@ -1,6 +1,6 @@
 {
   "name": "pencil-ui",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Pencil UI Web Development Framework made using SCSS and jQuery",
   "main": "dist/index.js",
   "scripts": {
