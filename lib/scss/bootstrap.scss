@@ -37,6 +37,8 @@ a {
 .pencil {
     font-family: $font-family-sans-serif;
     line-height: $line-height;
+    outline: none;
+    
 }
 
 .padded {
@@ -45,6 +47,7 @@ a {
 
 .pencil.container {
     margin: 0 auto;
+    overflow: hidden;
 
     @media screen and (max-width: breakpoint('xs')) {
         width: container-width('xs');

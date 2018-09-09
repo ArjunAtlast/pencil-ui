@@ -4,7 +4,7 @@
 $hover-darken: 10%; //inverse buttons
 $hover-saturate: 15%; //default
 
-.pencil.button {
+.pencil.button, button.pencil {
 
     text-decoration: none;
     display: inline-flex;
@@ -73,6 +73,10 @@ $hover-saturate: 15%; //default
             &:hover {
                 background: darken($brand-primary, $hover-darken);
             }
+
+            &.glass {
+                background: transparent;
+            }
         }//primary
 
         &.secondary {
@@ -83,6 +87,7 @@ $hover-saturate: 15%; //default
             &:hover {
                 background: darken($brand-secondary, $hover-darken);
             }
+
         }//secondary
 
         @each $key, $val in $colors {
@@ -99,17 +104,46 @@ $hover-saturate: 15%; //default
         }//each
 
 
-    }
+    }//inverse
 
     &.clear {
         background: transparent !important;
         border: transparent !important;
+        @include transition(opacity);
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    &.glass {
+        
+        background: transparent !important;
+        @include transition(opacity);
+        opacity: 0.8;
+
+        &:hover {
+            opacity: 1;
+        }
     }
     
     &.fluid {
         display: flex;
         box-sizing: border-box;
         width: 100%;
+    }
+
+    &.icon-left {
+
+        .icon { margin-right: nth($button-padding, 2) }
+
+    }
+
+    &.icon-right {
+
+        .icon { margin-left: nth($button-padding, 2) }
+        
     }
 
 }

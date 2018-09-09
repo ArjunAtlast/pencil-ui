@@ -1,0 +1,211 @@
+@import "../variables.scss";
+@import "../helpers.scss";
+
+$brand-colors: ('primary': $brand-primary, 'secondary': $brand-secondary);
+$status-colors: ('info': $brand-info, 'success': $brand-success, 'warning': $brand-warning, 'danger': $brand-danger);
+
+.pencil.card {
+
+    border-radius: $card-border-radius;
+    border-style: $card-border-style;
+    $border-color: transparent;
+    overflow: hidden;
+    z-index: 2;
+    margin: $card-margin;
+
+    & > .header {
+        padding: $card-padding;
+        border-bottom-width: $card-divider-thickness;
+        border-bottom-style: $card-border-style;
+    }//header
+
+    & > .content {
+        padding: $card-padding;
+        border-bottom-width: $card-divider-thickness;
+        border-bottom-style: $card-border-style;
+
+        .divider {
+            margin: nth($card-padding, 1) 0;
+            height: $card-divider-thickness;
+            width: 100%;
+        }
+
+        &:last-child {
+            border-bottom-width: 0px;
+        }
+    }//content
+
+    & > .footer {
+        display: flex;
+        padding: $card-padding;
+
+        .actions {
+            display: flex;
+
+            &.right {
+                margin-left: auto;
+            }
+        }
+    }//footer
+
+    .image {
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+
+        img {
+            width: 100%;
+        }
+
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: $card-padding;
+            font-size: $card-caption-font-size;
+        }
+    }//image
+
+    &.default {
+        border-width: $card-default-border-width;
+        border-color: $card-default-border-color;
+        background: $card-default-bg;
+        color: $card-default-text-color;
+
+        & > .image .caption {
+            background: transparentize($card-default-caption-bg, 0.6);
+            color: $card-default-caption-text-color;
+
+            .header {
+                color: $card-default-caption-text-color;
+            }
+        }
+
+        & > .header {
+            border-color: $card-default-border-color;
+            color: $card-default-text-color;
+        }//header
+
+        & > .content {
+            border-color: $card-default-border-color;
+
+            .divider {
+                background: $card-default-border-color;
+            }
+
+            .header {
+                color: $card-default-caption-text-color;
+            }
+        }//content
+
+    }//default
+
+    &.inverse {
+
+        border-width: $card-inverse-border-width;
+        border-color: $card-inverse-border-color;
+        background: $card-inverse-bg;
+        color: $card-inverse-text-color;
+
+        & > .image .caption {
+            background: transparentize($card-inverse-caption-bg,0.6);
+            color: $card-inverse-caption-text-color;
+
+            .header {
+                color: $card-inverse-caption-text-color;
+            }
+        }
+
+        & > .header {
+            border-color: $card-inverse-border-color;
+            color: $card-inverse-text-color;
+        }//header
+
+        & > .content {
+            border-color: $card-inverse-border-color;
+
+            .divider {
+                background: $card-inverse-border-color;
+            }
+
+            .header {
+                color: $card-inverse-caption-text-color;
+            }
+        }//content
+
+
+        @each $key, $val in map-merge($brand-colors, $colors){
+
+            &.#{$key} {
+
+                $__border-color: darken($val, 5%);
+
+                border-color: $__border-color;
+                background: $val;
+
+                & > .image .caption {
+                    background: transparentize($val, $amount: 0.6)
+                }
+
+                & > .header {
+                    border-color: $__border-color;
+                }
+
+                & > .content {
+                    border-color: $__border-color;
+
+                    .divider {
+                        background: $__border-color;
+                    }
+
+                }
+            }
+
+        }//each
+
+        @each $key, $val in $status-colors {
+
+            &.#{$key} {
+
+                $__border-color: darken($val, 5%);
+                $__color: darken($val, 30%);
+
+                border-color: $__border-color;
+                background: transparentize($val, 0.2);
+                color: $__color;
+
+                & > .image .caption {
+                    background: transparentize($val, $amount: 0.6)
+                }
+
+                & > .header {
+                    border-color: $__border-color;
+                    color: $__color;
+                }
+
+                & > .content {
+                    border-color: $__border-color;
+
+                    .divider {
+                        background: $__border-color;
+                    }
+
+                    .header {
+                        color: $__color;
+                    }
+                }
+
+            }
+        }//each
+
+    }
+
+    &.raised {
+        @include elevation($card-raised-distance);
+    }
+    
+    @include attachment;
+}

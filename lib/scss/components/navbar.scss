@@ -4,6 +4,8 @@
 .pencil.navbar {
 
     display: flex;
+    max-width: 100%;
+    overflow: hidden;
     padding: $navbar-padding;
     margin: $navbar-margin;
     align-items: center;

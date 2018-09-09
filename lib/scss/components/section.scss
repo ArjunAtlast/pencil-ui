@@ -1,6 +1,8 @@
 @import "../variables.scss";
 @import "../helpers.scss";
 
+$status-colors: ('info': $brand-info, 'success': $brand-success, 'warning': $brand-warning, 'danger': $brand-danger);
+
 .pencil.section, section.pencil {
     display: flex;
     flex-direction: column;
@@ -82,7 +84,7 @@
             }
         }//.secondary
 
-        @each $key, $val in ('info': $brand-info, 'success': $brand-success, 'warning': $brand-warning, 'danger': $brand-danger) {
+        @each $key, $val in $status-colors {
             
             &.#{$key} {
                 background: transparentize($val, 0.2);
